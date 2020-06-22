@@ -1,3 +1,5 @@
+#pip install SpeechRecognition. (CMD)
+#pip install PyAudio. (Download wheel file for pyaudio from browser before installing)
 import speech_recognition as sr
 
 def listen():
@@ -9,8 +11,10 @@ def listen():
     try:
         data = r.recognize_google(audio,language='en-US')
         print("You said:"+data)
-    except sr.UnknownValueError:
+#If VoiceRecog software can't understand you.
+   except sr.UnknownValueError:
         print("I cannot understand")
+#Time Out Error (If excessive time is taken.)
     except sr.RequstError as e:
         print("Request Failed")
     return data    
